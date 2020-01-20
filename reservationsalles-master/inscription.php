@@ -1,17 +1,12 @@
 
-<form name="inscription" method="post" action="">
-            login <input type="text" name="login"/> <br/>
-            mdp <input type="passeword" name="mdp"/><br/>
-			confirme mdp: <input type="passeword" name="remdp"/><br/>
-            <input type="submit" name="envoie" value="se connecter"/>
-</form>
 <?php
 	session_start();
 	
-    $_SESSION["validation"] = true;
+	$_SESSION["validation"] = true;
 	
-	if ($_POST["mdp"]==$_POST['remdp'])
 	if(isset($_POST["envoie"]))
+	{
+	if ($_POST["mdp"]==$_POST['remdp'])
 	{
 		echo "test";
 		$conn     = mysqli_connect("localhost","root","","reservationsalles");
@@ -37,5 +32,13 @@
 			header("location:connexion.php");
 		}
 	}
+}
 
 ?>
+
+<form name="inscription" method="post" action="">
+            login <input type="text" name="login"/> <br/>
+            mdp <input type="password" name="mdp"/><br/>
+			confirme mdp: <input type="password" name="remdp"/><br/>
+            <input type="submit" name="envoie" value="se connecter"/>
+</form>
