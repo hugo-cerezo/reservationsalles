@@ -31,15 +31,15 @@ session_start();
 				header("location:index.php");
 				
 			}
-			else
-				{
-			?>
-			<div  class="error">
-				<span>Les informations rentrées sont incorrect</span>
-			</div>
-			<?php
-			break;
-				}
+			/*else
+			{
+				?>
+				<div  class="error">
+					<span>Les informations rentrées sont incorrect</span>
+				</div>
+				<?php
+				break;
+					}*/
 			$count++;
 		}
 	}

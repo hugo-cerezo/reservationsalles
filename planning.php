@@ -36,7 +36,7 @@ session_start();
 									list($jour, $mois, $annee) = explode('/', $date);
 									$timestamp = mktime (0, 0, 0, $mois, $jour, $annee);
 									$joursem = date("w",$timestamp);
-									$heure = date_create($donnees['debut'])->format('G');
+									$heure = date_create($data['debut'])->format('G');
 
 									if($joursem == $i && $heure == $l)
 									    {
