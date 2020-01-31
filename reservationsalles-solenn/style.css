@@ -1,0 +1,184 @@
+@font-face {
+    font-family: 'gtitre';
+    src: url('polices/Carton_Six.ttf') format('TrueType');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'texte';
+    src: url('polices/LinLibertine.ttf') format('TrueType');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'ptitre';
+    src: url('polices/Dimbo.ttf') format('TrueType');
+    font-weight: normal;
+    font-style: normal;
+}
+/*-------------------GENERAL-----------*/
+html{
+    width: 100%;
+}
+body{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    margin: 0;
+    height: 100%;
+    justify-content: space-between;
+    background-image: url("img/background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+header{
+    grid-area: 1 / 1 / 2 / 6;
+}
+main{
+    grid-area: 2 / 2 / 5 / 5;
+}
+footer{
+    grid-area: 5 / 1 / 6 / 6;
+}
+/*---------------HEADER-----------*/
+.menu{
+    display:flex;
+    align-items: center;
+    flex-direction:row-reverse;
+    justify-content: space-between;
+    background-color: rgb(13, 24, 70);
+    padding: 2%;
+}
+.img-nav{
+    width: 15%;
+}
+.titre-nav{
+    font-family: 'gtitre';
+    text-decoration: none;
+    font-size: 250%;
+    color: white;
+}
+.titre-nav:hover{
+    text-decoration:underline;
+}
+.link-nav{
+    font-family: 'ptitre';
+    font-size: 125%;
+    text-decoration:none;
+    color:white;
+}
+.link-nav:hover{
+    text-decoration:underline;
+}
+/*---------------FOOTER-----------*/
+.footer{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    height: 7%;
+    background-color: rgb(92, 11, 11);
+    text-align: center; 
+    font-family: 'ptitre';
+    font-size: 110%;
+    color:white;
+    padding:1%;
+    opacity:0;
+}
+.footer:hover{
+    opacity: 0.5;
+}
+
+/*-------------INDEX-----------*/
+#bienvenue{
+   background-color:white; 
+   margin-top: 2%;
+   display: flex;
+   flex-direction: column-reverse;
+   justify-content: space-evenly;
+   padding: 2%;
+}
+#runforrest{
+    width: 70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#text-bienvenue{
+    font-family: 'ptitre';
+    text-align: center;
+    color: rgb(13, 24, 70);
+    font-size: 170%;
+    padding-bottom: 2%;
+}
+.div-index{
+    background-color:white;
+    margin-top: 2%;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-evenly;
+   padding: 2%;
+}
+.text-index{
+    font-family: 'ptitre';
+    text-align: center;
+    font-size: 200%;
+}
+.link-index{
+    font-family: 'ptitre';
+    text-decoration: none;
+    color: rgb(22, 42, 121);
+}
+.link-index:hover{
+    text-decoration: underline;
+}
+.button1{
+    font-family: 'ptitre';
+    font-size: 130%;
+    background-color: white;
+    border-color: rgb(22, 42, 121);
+    display: block;
+    margin-right:auto;
+    margin-left:auto;
+    margin-top: 2%;
+}
+.button1:hover{
+    text-decoration: underline;
+}
+/*----------FORM---------*/
+.form{
+    background-color: white;
+    text-align: center; 
+    font-family: 'ptitre';
+    font-size: 120%;
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+    margin-left : auto;
+    padding : 3%;
+    margin-top: 3%;
+}
+.input{
+    width: 50%;
+    margin-right:auto;
+    margin-left:auto;
+}
+#titre-réservation{
+    text-align: center; 
+    font-family: 'ptitre';
+    font-size: 150%;
+    color: rgb(94, 19, 19);
+}
+/*----------ERROR-----------*/
+.error{
+    background-color: white;
+    text-align: center; 
+    font-family: 'ptitre';
+    font-size: 200%;
+    margin-right: auto;
+    margin-left : auto;
+    padding : 3%;
+    margin-top: 3%;
+}

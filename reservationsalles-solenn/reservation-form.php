@@ -1,26 +1,21 @@
 <?php
 session_start();
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Accueil</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<header>
+<?php require ("header.php"); ?>
+</header>
+<body>
+    <main>
+        <?php
 if (isset($_SESSION['login'])) 
 {
 
-?>
-<form action="" method="post">
-				
-                <label for="titre">titre</label>
-				<input type="text" name="title" required/></br>
-				
-                <label for="description">description</label>
-				<textarea value="comment" name="comment" rows="3" required></textarea></br>
-                
-                <label for="debut">début</label>
-                <input type="datetime-local" name="heured" required/></br>
-                
-                <label for="fin">fin</label>
-				<input type="datetime-local" name="heuref" required/></br>
-
-				<input type="submit" value="reserver" name="envoie"/>
-</form>
-<?php
         if(isset($_POST['envoie']))
         {
             $titre = $_POST['title'];
@@ -51,20 +46,54 @@ if (isset($_SESSION['login']))
                  }
                  else
                  {
-                     echo "Ce créneau est déjà réservé";
+                    ?>
+                    <div class="error">
+                        <span>Ce créneau est déjà réservé</span>
+                    </div>
+                    <?php
                  }
             }
             else
             {
-                echo "Votre réservation ne peut durer qu'une heure";
+                ?>
+                <div class="error">
+                    <span>Votre réservation ne peut durer qu'une heure</span>
+                </div>
+                <?php
             }
 
         }
+        ?>
+        <h1 id="titre-réservation">Attention, votre réservation ne peut excéder une heure</h1>
+<form class="form"  action="" method="post">
+				
+                <label for="titre">Titre</label>
+				<input class="input" type="text" name="title" required/></br>
+				
+                <label for="description">Description</label>
+				<textarea class="input" value="comment" name="comment" rows="3" required></textarea></br>
+                
+                <label for="debut">Début de la réservation</label>
+                <input class="input" type="datetime-local" name="heured" required/></br>
+                
+                <label for="fin">Fin de la réservation</label>
+				<input class="input" type="datetime-local" name="heuref" required/></br>
+
+				<input class="button1" type="submit" value="Valider" name="envoie"/>
+</form>
+<?php
 }
 else 
 {
-    echo "Connexion requise";
+    ?>
+    <div class="error">
+        <span>Connexion requise</span>
+    </div>
+    <?php
 }
 
 ?>
+</main>
+</body>
+</html>
 

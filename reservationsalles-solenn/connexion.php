@@ -1,12 +1,26 @@
 <?php
 session_start();
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Connexion</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<header>
+<?php require ("header.php"); ?>
+</header>
+
+    <main>
+		<?php
 	if(isset($_POST["envoie"]))
 	{
 		$conn = mysqli_connect("localhost","root","","reservationsalles");
 		$request = "SELECT login, password FROM utilisateurs";
 		$sql = mysqli_query($conn,$request);
 		$row = mysqli_fetch_all($sql);
-		var_dump($row);
+		/*var_dump($row);*/
 		$count = 0;
 		while($count < count($row))
 		{
@@ -14,9 +28,18 @@ session_start();
 			{
               $_SESSION["connected"] = true;
 				$_SESSION["login"] = $_POST["login"];
-				header("location:profil.php");
+				header("location:index.php");
 				
 			}
+			else
+				{
+			?>
+			<div  class="error">
+				<span>Les informations rentrées sont incorrect</span>
+			</div>
+			<?php
+			break;
+				}
 			$count++;
 		}
 	}
@@ -24,10 +47,17 @@ session_start();
 
 ?>
 
-<form action="" method="post">
-				<label for="login">Votre Login</label>
-				<input type="text" name="login"/></br>
+<form class="form" action="" method="post">
+				<label for="login">Votre pseudo</label>
+				<input class="input" type="text" name="login"/></br>
 				<label for="mdp">Votre mot de passe</label>
-				<input type="password" name="mdp"/></br>
-				<input type="submit" value="Se connecter" name="envoie"/>
+				<input class="input" type="password" name="mdp"/></br>
+				<input class="button1" type="submit" value="Se connecter" name="envoie"/>
 </form>
+
+</main>
+<footer>
+    <span class="footer">Solenn Massot & Hugo Cerezo 2020</span>
+</footer>
+</body>
+</html>

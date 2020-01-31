@@ -1,6 +1,19 @@
 
 <?php
 session_start();
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profil</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<header>
+<?php require ("header.php"); ?>
+</header>
+    <main>
+        <?php
 if (isset($_SESSION['login'])) 
 {
     $connexion = mysqli_connect("localhost","root","","reservationsalles"); 
@@ -9,16 +22,16 @@ if (isset($_SESSION['login']))
     $resultat = mysqli_fetch_assoc($query);
 ?>
 
-<form  action="profil.php" method="post">
+<form class="form" action="profil.php" method="post">
 
-<label> Login :  </label>
-    <input type="text" name="login" value = 
+<label> Pseudo :  </label>
+    <input class="input" type="text" name="login" value = 
     <?php echo $resultat['login']; ?> />
-<label> Password :  </label></br>
-    <input type="password" name="mdp" value = 
+<label> Mot de Passe :  </label>
+    <input class="input" type="password" name="mdp" value = 
     <?php echo $resultat['password']; ?> />
 
-    <input type="submit" name="envoie" value="Modifier" />
+    <input class="button1" type="submit" name="envoie" value="Modifier" />
 
 </form>
     
@@ -26,7 +39,11 @@ if (isset($_SESSION['login']))
 }
 else 
 {
-    echo "Connexion requise";
+    ?>
+    <div class="error">
+        <span>Connexion requise</span>
+    </div>
+    <?php
 }
 if (isset($_POST['modifier']))
  {
@@ -36,5 +53,11 @@ if (isset($_POST['modifier']))
     $query2 = mysqli_query($connexion,$update); 
     
 }
-
 ?>
+</main>
+<footer>
+    <span class="footer">Solenn Massot & Hugo Cerezo 2020</span>
+</footer>
+</body>
+</html>
+

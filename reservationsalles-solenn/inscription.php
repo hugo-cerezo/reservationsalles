@@ -1,6 +1,20 @@
 
 <?php
 	session_start();
+	?>
+	<!DOCTYPE html>
+<html>
+<head>
+    <title>Inscription</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<header>
+<?php require ("header.php"); ?>
+</header>
+
+    <main>
+		<?php
 	
 	$_SESSION["validation"] = true;
 	
@@ -36,9 +50,16 @@
 
 ?>
 
-<form name="inscription" method="post" action="">
-            login <input type="text" name="login"/> <br/>
-            mdp <input type="password" name="mdp"/><br/>
-			confirme mdp: <input type="password" name="remdp"/><br/>
-            <input type="submit" name="envoie" value="se connecter"/>
+<form class="form" name="inscription" method="post" action="">
+            Pseudo <input class="input" type="text" name="login"/> <br/>
+            Mot de passe <input class="input" type="password" name="mdp"/><br/>
+			Confirmez votre mot de passe <input class="input" type="password" name="remdp"/><br/>
+            <input class="button1" type="submit" name="envoie" value="Se connecter"/>
 </form>
+
+</main>
+<footer>
+    <span class="footer">Solenn Massot & Hugo Cerezo 2020</span>
+</footer>
+</body>
+</html>
