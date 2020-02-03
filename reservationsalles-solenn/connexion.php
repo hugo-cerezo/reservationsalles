@@ -13,15 +13,7 @@ session_start();
 </header>
 
 <main>
-        <?php
-    if(empty($_SESSION['login']))
-{
-	?>
-	<form class="form" name="inscription" method="post" action="">
-            Pseudo <input class="input" type="text" name="login" required/> <br/>
-            Mot de passe <input class="input" type="password" name="password" required/><br/>
-            <input class="button1" type="submit" name="connexion" value="Se connecter"/>
-</form>
+
 
 <?php
 if(isset($_POST['connexion']))
