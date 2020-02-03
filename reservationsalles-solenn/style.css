@@ -182,3 +182,32 @@ footer{
     padding : 3%;
     margin-top: 3%;
 }
+/*---------------PLANNING---------*/
+#planning{
+    background-color: white;
+    text-align: center; 
+    font-family: 'ptitre';
+    font-size: 150%;
+    margin-right: auto;
+    margin-left : auto;
+    padding : 3%;
+    margin-top: 3%;
+    height: 150%;
+    width: 100%;
+}
+#res{
+    background-color: white;
+    text-align: center;
+    font-size: 120%;
+    margin-right: auto;
+    margin-left : auto;
+    padding : 3%;
+    margin-top: 3%;
+    width: 100%; 
+    font-family: 'ptitre';
+}
+.titreres{
+    font-family: 'gtitre';
+    font-size: 140%;
+    color: rgb(22, 42, 121);
+}

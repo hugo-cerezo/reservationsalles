@@ -12,49 +12,78 @@ session_start();
 <?php require ("header.php"); ?>
 </header>
 
-    <main>
-		<?php
-	if(isset($_POST["envoie"]))
-	{
-		$conn = mysqli_connect("localhost","root","","reservationsalles");
-		$request = "SELECT login, password FROM utilisateurs";
-		$sql = mysqli_query($conn,$request);
-		$row = mysqli_fetch_all($sql);
-		/*var_dump($row);*/
-		$count = 0;
-		while($count < count($row))
-		{
-			if($_POST["login"] == $row[$count][0] && password_verify($_POST["mdp"], $row[$count][1]))
-			{
-              $_SESSION["connected"] = true;
-				$_SESSION["login"] = $_POST["login"];
-				header("location:index.php");
-				
-			}
-			/*else
-			{
-				?>
-				<div  class="error">
-					<span>Les informations rentrées sont incorrect</span>
-				</div>
-				<?php
-				break;
-					}*/
-			$count++;
-		}
-	}
+<main>
 
 
+<?php
+if(isset($_POST['connexion']))
+{
+            $login = $_POST['login'];
+            $connexion = mysqli_connect("localhost","root","","reservationsalles");
+            if(!$connexion)
+            {
+                ?>
+                <div class="error">
+                <span>
+                   Une erreur s'est produite, veuillez réessayer plus tard
+             </span>
+             </div>
+             <?php
+            }
+            else
+            {
+                $requete = "SELECT login, password FROM utilisateurs WHERE login = '".$login."'";
+                $query = mysqli_query($connexion, $requete);
+                $resultat = mysqli_fetch_array($query);
+
+                if(!empty($resultat))
+                {   
+                    if ($_POST['login'] == $resultat['login'])
+                    {
+                    if (password_verify($_POST['password'], $resultat['password']))
+                    {
+                        $_SESSION['login'] = $_POST['login'] ;
+                        $_SESSION['password'] = $_POST['password'] ;
+                        header("location:index.php");
+                    }
+                    else
+                    {
+                       ?>
+                       <div class="error">
+                       <span>
+                           Mot de passe incorrect
+                    </span>
+                    </div>
+                    <?php
+                    }
+                }
+                }
+                else
+                {
+                    ?>
+                    <div class="error">
+                    <span>
+                        Pseudo inconnu
+                 </span>
+                    </div>
+                 <?php
+                }
+                
+    }
+}
+
+
+}
+else{
+    ?>
+    <div class="error">
+        <span>
+            T'es déjà connecté
+        </span>
+    </div>
+    <?php
+}
 ?>
-
-<form class="form" action="" method="post">
-				<label for="login">Votre pseudo</label>
-				<input class="input" type="text" name="login"/></br>
-				<label for="mdp">Votre mot de passe</label>
-				<input class="input" type="password" name="mdp"/></br>
-				<input class="button1" type="submit" value="Se connecter" name="envoie"/>
-</form>
-
 </main>
 <footer>
     <span class="footer">Solenn Massot & Hugo Cerezo 2020</span>
